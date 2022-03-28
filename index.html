@@ -4,9 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style.css">
     <title>Document</title>
 </head>
 <body>
-    <script src="script.js"></script>
+    <header>
+        <a href="#">View high scores</a>
+        <span>Time: </span>
+    </header>
+    <main>
+        <div class="container">
+            <h1 id="title">Code Quiz Challenge</h1> <!--id title will be refferenced to change between questions-->
+            <p id="startUp"> <!--This istart up will be displayed none after clicking button-->
+                Try to answer the following code-related questions within the limit time. <br>
+                Keep in mind that the incorrect answers will penalize your score/time <br> 
+                by ten seconds!
+            </p>
+
+            <button id="startQuiz">Start Quiz</button> <!--id startQuiz will be used to initiate function-->
+        </div>
+    </main>
+    <script src="./assets/script.js"></script>
 </body>
 </html>
