@@ -8,22 +8,21 @@
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <a href="#">View high scores</a>
-        <span>Time: </span>
-    </header>
-    <main>
         <div class="container">
-            <h1 id="title">Code Quiz Challenge</h1> <!--id title will be refferenced to change between questions-->
-            <p id="startUp"> <!--This istart up will be displayed none after clicking button-->
-                Try to answer the following code-related questions within the limit time. <br>
-                Keep in mind that the incorrect answers will penalize your score/time <br> 
-                by ten seconds!
-            </p>
-
-            <button id="startQuiz">Start Quiz</button> <!--id startQuiz will be used to initiate function-->
-        </div>
-    </main>
+            <div id="question-container" class="hide">
+                <div id="question">Question</div>
+                <div id="answer-buttons" class="btn-grid">
+                    <button class="btn">Answer 1</button>
+                    <button class="btn">Answer 2</button>
+                    <button class="btn">Answer 3</button>
+                    <button class="btn">Answer 4</button>
+                </div>
+            </div>
+            <div class="controls">
+            <button id="start-btn" class="start-btn btn">Start</button>
+            <button id="next-btn" class="next-btn btn hide">next</button>
+            </div>
+    
     <script src="./assets/script.js"></script>
 </body>
 </html>
