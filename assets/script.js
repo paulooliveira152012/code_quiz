@@ -6,7 +6,7 @@ const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
 
 //create variable to randomnize the questions
-let shuffleQuestions, currentQuestionIndex
+let shuffledQuestions, currentQuestionIndex
 
 // (1) add event listener to the start button AND call function startGame
 startButton.addEventListener('click', startGame)
@@ -18,18 +18,16 @@ nextButton.addEventListener('click', () => {
 /*  (2) Create the first function where we start the game and where in it we will:
     - console log the word "started"
     - add the hide classList to the start button
-    - set shuffleQuestions equal to the shuffled array
+    - set shuffledQuestions equal to the shuffled array
     - set the count for the shuffled questions to start from the very first question (0 in the array)
     - remove the 'hide' classList from the questionContainerElement
     - call the second function, setNextQuestion
 */
 function startGame() {
-    //console logging the word 'started
-    console.log('started')
     //hide start button after it has been clicked 
     startButton.classList.add('hide')
-    //grabbing the variable I created at the top, setting it equal to the questions array (which is at the bottom), and creating the shuffle random property.
-    shuffleQuestions = questions.sort(() => Math.random() - .5) 
+    //grabbing the variable I created at the top, setting it equal to the questions array (which is at the bottom), and creating the shuffled random property.
+    shuffledQuestions = questions.sort(() => Math.random() - .5) 
     //Starting from the first question in the array
     currentQuestionIndex = 0
     //removing the classlist hide 
@@ -43,9 +41,9 @@ function startGame() {
 */
 
 function setNextQuestion() {
-    
+    resetState() 
     // create function that will pick the random question from the array in the state of the shuffleQuestion and currentQuestion previously definded. 
-    showQuestion(shuffleQuestions[currentQuestionIndex]) 
+    showQuestion(shuffledQuestions[currentQuestionIndex]) 
 }
 
 /* (4) Create THE function that is being called in the previous function that will show next question
@@ -106,13 +104,20 @@ function selectAnswer(e) {
     Array.from(answerButtonsElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
     })
-    if (shuffleQuestions.length > currentQuestionIndex + 1) {
+
+    //check if we are not in the next question already
+     if (shuffledQuestions.length > currentQuestionIndex + 1) {
         nextButton.classList.remove('hide')
     } else {
         startButton.innerText = 'Restart'
         startButton.classList.remove('hide')
     }
+    
     resetState() 
+
+    nextButton.classList.remove('hide')
+
+   
 }
 
 /* (8) Creating function setStatusClass which we created in the previous step
@@ -120,9 +125,9 @@ function selectAnswer(e) {
 function setStatusClass(element, correct) {
     clearStatusClass(element)
     if (correct) {
-        element.classlist.add('correct')
+        element.classList.add('correct')
     } else {
-        element.classlist.add('wrong')
+        element.classList.add('wrong')
     }
 }
 
@@ -130,8 +135,8 @@ function setStatusClass(element, correct) {
  */
 
 function clearStatusClass(element) {
-    element.classlist.remove('correct')
-    element.classlist.remove('wrong')
+    // element.classList.remove('correct')
+    // element.classList.remove('wrong')
 }
 
 
