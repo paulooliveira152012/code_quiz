@@ -43,7 +43,7 @@ function startGame() {
 */
 
 function setNextQuestion() {
-    resetState() 
+    
     // create function that will pick the random question from the array in the state of the shuffleQuestion and currentQuestion previously definded. 
     showQuestion(shuffleQuestions[currentQuestionIndex]) 
 }
@@ -112,6 +112,7 @@ function selectAnswer(e) {
         startButton.innerText = 'Restart'
         startButton.classList.remove('hide')
     }
+    resetState() 
 }
 
 /* (8) Creating function setStatusClass which we created in the previous step

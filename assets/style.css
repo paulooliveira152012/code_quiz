@@ -64,12 +64,12 @@ body.wrong {
 }
 
 .btn.correct {
-    --hue:var(--hue-correct);
+    --hue: var(--hue-correct);
     color: black;
 }
 
 .btn.wrong {
-    --hue:var(--hue-wrong);
+    --hue: var(--hue-wrong);
 }
 
 .start-btn, .next-btn {
@@ -81,6 +81,7 @@ body.wrong {
 .controls {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .hide {
