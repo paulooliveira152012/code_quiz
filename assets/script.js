@@ -4,12 +4,14 @@ const nextButton = document.getElementById('next-btn')
 const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
+var placeHolder = document.getElementById('placeHolder')
 
 //create variable to randomnize the questions
 let shuffledQuestions, currentQuestionIndex
 
 // (1) add event listener to the start button AND call function startGame
 startButton.addEventListener('click', startGame)
+startButton.addEventListener('click', startTimer)
 nextButton.addEventListener('click', () => {
     currentQuestionIndex++
     setNextQuestion()
@@ -138,6 +140,38 @@ function clearStatusClass(element) {
     // element.classList.remove('correct')
     // element.classList.remove('wrong')
 }
+
+/* -timer------------------------------------------------------------------------------------- */
+function startTimer() {
+    //creating a variable to equal the time of the quiz
+var counter = 10
+//create a function
+var countdown = function() {
+//counter decrement
+counter--;
+if(counter === 0) {
+    window.alert("Time's up");
+//stop countdown
+clearInterval(startCountdown)
+};
+//
+placeHolder.textContent = counter
+};
+
+var startCountdown = setInterval (countdown, 1000)
+
+}
+/* ------------------------------------------------------------------------------------------- */
+
+
+/* -timer------------------------------------------------------------------------------------- */
+var alert = function() {
+    window.alert('hello')
+}
+
+
+/* ------------------------------------------------------------------------------------------- */
+
 
 
 

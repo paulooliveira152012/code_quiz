@@ -11,6 +11,21 @@
 header {
     top: 0;
     position: absolute;
+    background-color: lightblue;
+    width: 100%;
+    display: flex;
+}
+
+header p {
+    right: 0;
+    display: inline;
+    position: relative;
+    margin: 10px 20px;
+}
+
+header #timer {
+position:absolute;
+margin: 10px 50px;
 }
 
 body {
@@ -23,6 +38,12 @@ body {
     justify-content: center;
     align-items: center;
     background-color: hsl(var(--hue), 100%, 20%);
+}
+
+main {
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 
 body.correct {
