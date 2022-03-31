@@ -5,6 +5,7 @@ const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
 var placeHolder = document.getElementById('placeHolder')
+var score = 0
 
 //create variable to randomnize the questions
 let shuffledQuestions, currentQuestionIndex
@@ -43,6 +44,7 @@ function startGame() {
 */
 
 function setNextQuestion() {
+    
     resetState() 
     // create function that will pick the random question from the array in the state of the shuffleQuestion and currentQuestion previously definded. 
     showQuestion(shuffledQuestions[currentQuestionIndex]) 
@@ -57,7 +59,7 @@ function setNextQuestion() {
 
 // (5) creating the showQuestionFunction refferencing to the QUESTION parameter in the object at the bottom of the page
 function showQuestion(question){  
-
+    
     questionElement.innerText = question.question
     //creating loop to populate asnwers
     question.answers.forEach(answer => {
@@ -70,7 +72,9 @@ function showQuestion(question){
         // check if the answer is correct
         if (answer.correct) {
             // styling button if answer is correct
+            
             button.dataset.correct = answer.correct
+    
         }
         //set an event listener to this button to the selected answer button and call function in step (7)
         button.addEventListener('click', selectAnswer)
@@ -83,6 +87,7 @@ function showQuestion(question){
 */
 
 function resetState() {
+    question.innerText = "";
     clearStatusClass(document.body)
     nextButton.classList.add('hide')
     while(answerButtonsElement.firstChild) {
@@ -99,10 +104,12 @@ function resetState() {
 */
 function selectAnswer(e) {
     // identifying which button got selected
+    e.preventDefault()
     const selectedButton = e.target
     // check if it is correct
-    const correct = selectedButton.dataset.correct
-    setStatusClass(document.body, correct)
+    var correctt = selectedButton.dataset.correct
+    
+    setStatusClass(document.body, correctt)
     Array.from(answerButtonsElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
     })
@@ -110,14 +117,18 @@ function selectAnswer(e) {
     //check if we are not in the next question already
      if (shuffledQuestions.length > currentQuestionIndex + 1) {
         nextButton.classList.remove('hide')
+        
     } else {
         startButton.innerText = 'Restart'
         startButton.classList.remove('hide')
+        end()
+        clearInterval(startCountdown)
+        
     }
     
-    resetState() 
+    // resetState() 
 
-    nextButton.classList.remove('hide')
+    // nextButton.classList.remove('hide')
 
    
 }
@@ -125,26 +136,33 @@ function selectAnswer(e) {
 /* (8) Creating function setStatusClass which we created in the previous step
  */
 function setStatusClass(element, correct) {
+    
     clearStatusClass(element)
+    
     if (correct) {
         element.classList.add('correct')
+        
+        console.log(score)
     } else {
         element.classList.add('wrong')
     }
 }
 
+
+
 /* (9) Create function clearStatusClass, which was called in the previous function
  */
 
 function clearStatusClass(element) {
-    // element.classList.remove('correct')
-    // element.classList.remove('wrong')
+    element.classList.remove('correct')
+    element.classList.remove('wrong')
 }
 
+var startCountdown
 /* -timer------------------------------------------------------------------------------------- */
 function startTimer() {
     //creating a variable to equal the time of the quiz
-var counter = 10
+var counter = 10000
 //create a function
 var countdown = function() {
 //counter decrement
@@ -158,19 +176,12 @@ clearInterval(startCountdown)
 placeHolder.textContent = counter
 };
 
-var startCountdown = setInterval (countdown, 1000)
+startCountdown = setInterval (countdown, 1000)
 
 }
 /* ------------------------------------------------------------------------------------------- */
 
 
-/* -timer------------------------------------------------------------------------------------- */
-var alert = function() {
-    window.alert('hello')
-}
-
-
-/* ------------------------------------------------------------------------------------------- */
 
 
 
@@ -232,3 +243,23 @@ Why is the appended child not showing for the answer buttons' element ❓
 24 minutes
 
 */
+
+//create variables
+var highScoreContainer = document.querySelector('.highScore')
+highScoreContainer.style.display = "none"
+var mainContainer = document.querySelector('.mainContainer')
+function end() {
+    highScoreContainer.style.display = 'block';
+    mainContainer.style.display = 'none';
+}
+
+var userInput = document.getElementById('input')
+var submitBtn = document.getElementById('submitBtn')
+
+function submitForm() {
+    submitBtn.addEventListener('click', function(){
+        console.log(userInput.value)
+    })
+}
+
+submitForm()
