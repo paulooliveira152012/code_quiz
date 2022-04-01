@@ -44,7 +44,6 @@ function startGame() {
 */
 
 function setNextQuestion() {
-    
     resetState() 
     // create function that will pick the random question from the array in the state of the shuffleQuestion and currentQuestion previously definded. 
     showQuestion(shuffledQuestions[currentQuestionIndex]) 
@@ -111,7 +110,7 @@ function selectAnswer(e) {
     
     setStatusClass(document.body, correctt)
     Array.from(answerButtonsElement.children).forEach(button => {
-        setStatusClass(button, button.dataset.correct)
+        // setStatusClass(button, button.dataset.correct)
     })
 
     //check if we are not in the next question already
@@ -141,7 +140,7 @@ function setStatusClass(element, correct) {
     
     if (correct) {
         element.classList.add('correct')
-        
+        score += 1
         console.log(score)
     } else {
         element.classList.add('wrong')
@@ -181,6 +180,12 @@ startCountdown = setInterval (countdown, 1000)
 }
 /* ------------------------------------------------------------------------------------------- */
 
+
+
+// create a div html or dynamincally on js
+/// save the score in localStorage 
+/// retrieve them  localStorage. getItem() && .setItem(); 
+/// and then display them using .textContent 
 
 
 
@@ -263,3 +268,6 @@ function submitForm() {
 }
 
 submitForm()
+
+
+
