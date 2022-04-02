@@ -125,6 +125,10 @@ function selectAnswer(e) {
         clearInterval(startCountdown)
         
     }
+    if (correctt) {
+        score += 1
+        console.log(score)
+    }
     
     // resetState() 
 
@@ -141,8 +145,8 @@ function setStatusClass(element, correct) {
     
     if (correct) {
         element.classList.add('correct')
-        score += 1
-        console.log(score)
+        // score += 1
+        // console.log(score)
     } else {
         element.classList.add('wrong')
     }
@@ -241,6 +245,7 @@ Why is the appended child not showing for the answer buttons' element ❓
 var highScoreContainer = document.querySelector('.highScore')
 highScoreContainer.style.display = "none"
 var mainContainer = document.querySelector('.mainContainer')
+
 function end() {
     highScoreContainer.style.display = 'block';
     mainContainer.style.display = 'none';
