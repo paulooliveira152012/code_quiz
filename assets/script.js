@@ -267,11 +267,3 @@ function submitForm() {
 }
  
 submitForm()
- 
- 
- 
- 
-
-
-
-
