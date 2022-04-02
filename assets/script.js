@@ -141,7 +141,7 @@ function setStatusClass(element, correct) {
     
     if (correct) {
         element.classList.add('correct')
-        
+        score += 1
         console.log(score)
     } else {
         element.classList.add('wrong')
