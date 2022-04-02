@@ -9,15 +9,31 @@ var score = 0
 var userInput = document.getElementById('input')
 var submitBtn = document.getElementById('submitBtn')
 var endingMessage = document.getElementById('endingMessage')
+var highScoreContainer = document.querySelector('.highScore')
+var mainContainer = document.querySelector('.mainContainer')
 // this variable will go into local storage, if it exists it will return the value (array), 
 var highScoreArray = JSON.parse(localStorage.getItem('highScores')) || []
+var checkScores = document.getElementById('checkScores')
+var scoreBoard = document.getElementById('scoreBoard')
+var content = document.getElementById('content')
+
+
+
+
+// calling functions seeScore
+checkScores.addEventListener('click', seeScore)
+
+// function seeScore to display scores in the div with id listHighScores
+function seeScore() {
+
+}
+
 
 //create variable to randomnize the questions
 let shuffledQuestions, currentQuestionIndex
 
 // (1) add event listener to the start button AND call function startGame
 startButton.addEventListener('click', startGame)
-startButton.addEventListener('click', startTimer)
 nextButton.addEventListener('click', () => {
     currentQuestionIndex++
     setNextQuestion()
@@ -42,6 +58,7 @@ function startGame() {
     questionContainerElement.classList.remove('hide')
     //call next function wichi will bring next questions
     setNextQuestion()
+    startTimer()
 }
 
 /* (3) Create function for setting the next question -- what happens when the next button is clicked 
@@ -128,7 +145,6 @@ function selectAnswer(e) {
         startButton.classList.remove('hide')
         end()
         clearInterval(startCountdown)
-        
     }
     if (correctt) {
         score += 1
@@ -247,29 +263,37 @@ Why is the appended child not showing for the answer buttons' element ❓
 */
 
 //create variables
-var highScoreContainer = document.querySelector('.highScore')
+
 highScoreContainer.style.display = "none"
-var mainContainer = document.querySelector('.mainContainer')
+
 
 function end() {
     highScoreContainer.style.display = 'block';
     mainContainer.style.display = 'none';
-
-
 }
 
-    submitBtn.addEventListener('click', function(){
+
+/* ------------------------------------------------------------------------------------------- */    
+
+submitBtn.addEventListener('click', function(){
         console.log(userInput.value)
+
         endingMessage.textContent= "Congratulations " + userInput.value + " you scored " +  score
         //string that will be pushed to an array
         var userScore = userInput.value + " " + score
         //this will push to the array
         highScoreArray.push(userScore)
         localStorage.setItem("highScores", JSON.stringify(highScoreArray))
+
+        addButton()
     });
-
-    
-
+/* ------------------------------------------------------------------------------------------- */
+function addButton() {
+    const node = document.createElement("li");
+    const textnode = document.createTextNode("Water");
+    node.appendChild(textnode);
+    document.getElementById("myList").appendChild(node);
+}
 
 
 /* ------------------------------------------------------------------------------------------- */
@@ -283,6 +307,5 @@ Creating a function to save and display scores
 
 1 --> in the end function add step number one
 */
-
 
 
