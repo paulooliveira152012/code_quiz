@@ -254,5 +254,4 @@ function submitForm() {
         console.log(userInput.value)
     })
 }
-
 submitForm()
