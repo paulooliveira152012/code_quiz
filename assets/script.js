@@ -6,6 +6,11 @@ const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
 var placeHolder = document.getElementById('placeHolder')
 var score = 0
+var userInput = document.getElementById('input')
+var submitBtn = document.getElementById('submitBtn')
+var endingMessage = document.getElementById('endingMessage')
+// this variable will go into local storage, if it exists it will return the value (array), 
+var highScoreArray = JSON.parse(localStorage.getItem('highScores')) || []
 
 //create variable to randomnize the questions
 let shuffledQuestions, currentQuestionIndex
@@ -249,14 +254,35 @@ var mainContainer = document.querySelector('.mainContainer')
 function end() {
     highScoreContainer.style.display = 'block';
     mainContainer.style.display = 'none';
+
+
 }
 
-var userInput = document.getElementById('input')
-var submitBtn = document.getElementById('submitBtn')
-
-function submitForm() {
     submitBtn.addEventListener('click', function(){
         console.log(userInput.value)
-    })
-}
-submitForm()
+        endingMessage.textContent= "Congratulations " + userInput.value + " you scored " +  score
+        //string that will be pushed to an array
+        var userScore = userInput.value + " " + score
+        //this will push to the array
+        highScoreArray.push(userScore)
+        localStorage.setItem("highScores", JSON.stringify(highScoreArray))
+    });
+
+    
+
+
+
+/* ------------------------------------------------------------------------------------------- */
+/* 
+Creating a function to save and display scores 
+
+1 - Use variable score concatenated with the value inside the text input to display user's name and score at the end of the quiz
+2 - use score variable value  and the value added in the input to save this variable to local storage.
+3 - Add this variable to the scoreBoard
+4 - display scoreBoard when "view high scores" link is clicked
+
+1 --> in the end function add step number one
+*/
+
+
+
