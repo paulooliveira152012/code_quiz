@@ -21,11 +21,19 @@ The goal of the game is to answer as many questions correctly in the shortest am
 
 ## Links and previews
 
-![Finished and deployed website project](LinkHere)
+![Finished and deployed website project](https://paulooliveira152012.github.io/code_quiz/)
 
-![GitHub-repository](linkJere)
+![GitHub-repository](https://github.com/paulooliveira152012/code_quiz)
+
+
 
 HTML Screen-shot
+![HTML ScreenShot](assets/ScreenShot/html.png)
+
 CSS Screen-shot
-JavaScript screen-Shot
-Web application Screen-shot
+![CSS ScreenShot](assets/ScreenShot/css.png)
+
+Website Screen-shot
+![WebsiteScreenshot](assets/ScreenShot/Website.png)
+
+
