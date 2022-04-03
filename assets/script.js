@@ -16,7 +16,7 @@ var highScoreArray = JSON.parse(localStorage.getItem('highScores')) || []
 var checkScores = document.getElementById('checkScores')
 var scoreBoard = document.getElementById('scoreBoard')
 var content = document.getElementById('content')
-var counter = 5
+var counter = 60
 
 
 
