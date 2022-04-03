@@ -20,14 +20,6 @@ var content = document.getElementById('content')
 
 
 
-// calling functions seeScore
-checkScores.addEventListener('click', seeScore)
-
-// function seeScore to display scores in the div with id listHighScores
-function seeScore() {
-
-}
-
 
 //create variable to randomnize the questions
 let shuffledQuestions, currentQuestionIndex
@@ -109,7 +101,6 @@ function showQuestion(question){
 */
 
 function resetState() {
-    question.innerText = "";
     clearStatusClass(document.body)
     nextButton.classList.add('hide')
     while(answerButtonsElement.firstChild) {
@@ -130,7 +121,7 @@ function selectAnswer(e) {
     const selectedButton = e.target
     // check if it is correct
     var correctt = selectedButton.dataset.correct
-    
+
     setStatusClass(document.body, correctt)
     Array.from(answerButtonsElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
@@ -150,34 +141,20 @@ function selectAnswer(e) {
         score += 1
         console.log(score)
     }
-    
-    // resetState() 
-
-    // nextButton.classList.remove('hide')
-
-   
 }
 
 /* (8) Creating function setStatusClass which we created in the previous step
  */
 function setStatusClass(element, correct) {
-    
     clearStatusClass(element)
-    
     if (correct) {
         element.classList.add('correct')
-        // score += 1
-        // console.log(score)
     } else {
         element.classList.add('wrong')
     }
 }
 
-
-
-/* (9) Create function clearStatusClass, which was called in the previous function
- */
-
+/* (9) Create function clearStatusClass, which was called in the previous function */
 function clearStatusClass(element) {
     element.classList.remove('correct')
     element.classList.remove('wrong')
@@ -277,35 +254,38 @@ function end() {
 
 submitBtn.addEventListener('click', function(){
         console.log(userInput.value)
-
         endingMessage.textContent= "Congratulations " + userInput.value + " you scored " +  score
         //string that will be pushed to an array
         var userScore = userInput.value + " " + score
         //this will push to the array
         highScoreArray.push(userScore)
         localStorage.setItem("highScores", JSON.stringify(highScoreArray))
+        submitBtn.style.display="none";
+        userInput.style.display="none"
+        
 
-        addButton()
+        var button = document.createElement('input');
+        button.type = 'button'
+        button.id = "submit"
+        button.value = "View all scores"
+        button.className = "btn"
+
+        button.onclick = function() {
+            window.location="scores.html";
+        }        
+        content.appendChild(button);
+
     });
 /* ------------------------------------------------------------------------------------------- */
-function addButton() {
-    const node = document.createElement("li");
-    const textnode = document.createTextNode("Water");
-    node.appendChild(textnode);
-    document.getElementById("myList").appendChild(node);
-}
+
 
 
 /* ------------------------------------------------------------------------------------------- */
 /* 
 Creating a function to save and display scores 
-
 1 - Use variable score concatenated with the value inside the text input to display user's name and score at the end of the quiz
 2 - use score variable value  and the value added in the input to save this variable to local storage.
 3 - Add this variable to the scoreBoard
 4 - display scoreBoard when "view high scores" link is clicked
-
 1 --> in the end function add step number one
 */
-
-
