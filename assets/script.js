@@ -16,7 +16,7 @@ var highScoreArray = JSON.parse(localStorage.getItem('highScores')) || []
 var checkScores = document.getElementById('checkScores')
 var scoreBoard = document.getElementById('scoreBoard')
 var content = document.getElementById('content')
-
+var counter = 60
 
 
 
@@ -122,7 +122,7 @@ function selectAnswer(e) {
     // check if it is correct
     var correctt = selectedButton.dataset.correct
 
-    setStatusClass(document.body, correctt)
+    // setStatusClass(document.body, correctt)
     Array.from(answerButtonsElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
     })
@@ -150,8 +150,14 @@ function setStatusClass(element, correct) {
     if (correct) {
         element.classList.add('correct')
     } else {
-        element.classList.add('wrong')
+        element.classList.add('wrong');
+        counter = counter - 10
+        console.log(counter)
     }
+}
+
+function timerDecrement(){
+    
 }
 
 /* (9) Create function clearStatusClass, which was called in the previous function */
@@ -164,12 +170,12 @@ var startCountdown
 /* -timer------------------------------------------------------------------------------------- */
 function startTimer() {
     //creating a variable to equal the time of the quiz
-var counter = 60
+
 //create a function
 var countdown = function() {
 //counter decrement
 counter--;
-if(counter === 0) {
+if(counter <= 0) {
     window.alert("Time's up");
 //stop countdown
 clearInterval(startCountdown)
@@ -183,6 +189,11 @@ startCountdown = setInterval (countdown, 1000)
 }
 /* ------------------------------------------------------------------------------------------- */
 
+// function wrongAnswer() {
+//     if (element = 'wrong') {
+//         counter = counter -10
+//     } 
+// }
 
 
 
