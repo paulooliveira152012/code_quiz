@@ -21,7 +21,7 @@ The goal of the game is to answer as many questions correctly in the shortest am
 
 ## Links and previews
 
-![Finished and deployed website project](https://paulooliveira152012.github.io/code_quiz/)
+![Finished and deployed website project](https://paulooliveira152012.github.io/code_quiz)
 
 ![GitHub-repository](https://github.com/paulooliveira152012/code_quiz)
 
