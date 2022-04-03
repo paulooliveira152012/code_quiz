@@ -16,7 +16,7 @@ var highScoreArray = JSON.parse(localStorage.getItem('highScores')) || []
 var checkScores = document.getElementById('checkScores')
 var scoreBoard = document.getElementById('scoreBoard')
 var content = document.getElementById('content')
-var counter = 60
+var counter = 5
 
 
 
@@ -179,8 +179,13 @@ var countdown = function() {
 counter--;
 if(counter <= 0) {
     window.alert("Time's up");
+    
+// call a function to portion of program to enter name
+end()
+
 //stop countdown
 clearInterval(startCountdown)
+
 };
 //
 placeHolder.textContent = counter
@@ -190,15 +195,6 @@ startCountdown = setInterval (countdown, 1000)
 
 }
 /* ------------------------------------------------------------------------------------------- */
-
-// function wrongAnswer() {
-//     if (element = 'wrong') {
-//         counter = counter -10
-//     } 
-// }
-
-
-
 
 
 const questions = [
