@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <p><a href="" id="checkScore">View high scores</a></p>
+        <p id="checkScores"><a href="./scores.html">View high scores</a></p>
         <p id="timer">timer: <span id="placeHolder"></span></p>
     </header>
     <main class="mainContainer">
@@ -29,13 +29,18 @@
             <button id="next-btn" class="next-btn btn hide">next</button>
             </div>
         </main>
-        <div class="highScore">
-            <input type="text" name="" id="input" placeholder="Enter your name">
-            <button id="submitBtn">Submit</button>
+        <div class="highScore hide">
+            <div class="content" id="content">
+                <p id="endingMessage"></p>
+                <input type="text" name="" id="input" placeholder="Enter your name">
+                <button id="submitBtn">Submit</button>
+            </div>
         </div>
 
+    
+
         <!-- hide div with a display:none && block css property -->
-        <div class="scoreBoard">
+        <div class="scoreBoard hide" id="scoreBoard">
             <ul>
                 <!-- create il elements to include the names and scores  -->
             </ul>
