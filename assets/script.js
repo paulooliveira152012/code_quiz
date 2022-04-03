@@ -20,7 +20,6 @@ var counter = 60
 
 
 
-
 //create variable to randomnize the questions
 let shuffledQuestions, currentQuestionIndex
 
