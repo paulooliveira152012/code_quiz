@@ -119,6 +119,7 @@ function selectAnswer(e) {
     // identifying which button got selected
     e.preventDefault()
     const selectedButton = e.target
+    
     // check if it is correct
     var correctt = selectedButton.dataset.correct
 
@@ -140,6 +141,9 @@ function selectAnswer(e) {
     if (correctt) {
         score += 1
         console.log(score)
+        //
+    } else {
+        counter = counter - 10
     }
 }
 
@@ -151,8 +155,6 @@ function setStatusClass(element, correct) {
         element.classList.add('correct')
     } else {
         element.classList.add('wrong');
-        counter = counter - 10
-        console.log(counter)
     }
 }
 
