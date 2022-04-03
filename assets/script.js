@@ -164,7 +164,7 @@ var startCountdown
 /* -timer------------------------------------------------------------------------------------- */
 function startTimer() {
     //creating a variable to equal the time of the quiz
-var counter = 10000
+var counter = 60
 //create a function
 var countdown = function() {
 //counter decrement
