@@ -254,11 +254,6 @@ function end() {
 
 submitBtn.addEventListener('click', function(){
         console.log(userInput.value)
-<<<<<<< HEAD
-    })
-}
-submitForm()
-=======
         endingMessage.textContent= "Congratulations " + userInput.value + " you scored " +  score
         //string that will be pushed to an array
         var userScore = userInput.value + " " + score
@@ -294,4 +289,3 @@ Creating a function to save and display scores
 4 - display scoreBoard when "view high scores" link is clicked
 1 --> in the end function add step number one
 */
->>>>>>> develop
