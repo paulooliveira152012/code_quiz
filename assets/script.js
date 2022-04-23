@@ -157,9 +157,6 @@ function setStatusClass(element, correct) {
     }
 }
 
-function timerDecrement(){
-    
-}
 
 /* (9) Create function clearStatusClass, which was called in the previous function */
 function clearStatusClass(element) {
